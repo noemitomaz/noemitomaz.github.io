@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noemi Tomaz | Automação com IA, Sites e Apps</title>
+<meta name="description" content="Noemi Tomaz: professora de tecnologia, licencianda em Computação e creator. Automação de agentes de IA, criação de sites e apps e soluções para processos.">
+<meta property="og:title" content="Noemi Tomaz | Automação com IA, Sites e Apps">
+<meta property="og:description" content="Agentes de IA, sites, apps e soluções para processos. Conheça meus projetos.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#140d1f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f0447f'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Georgia' font-weight='700' text-anchor='middle' fill='white'%3ENT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#140d1f; --ink-2:#1e1432; --ink-3:#2a1d44;
+    --rosa:#f0447f; --rosa-2:#ff7aa8; --rosa-soft:#ffe3ee;
+    --lilas:#8b5cf6;
+    --bg:#faf7fb; --card:#fff; --linha:#eadff0;
+    --texto:#241a33; --suave:#6d6279;
+    --raio:20px;
+    --head:'Sora',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{font-family:var(--body);color:var(--texto);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:var(--head);line-height:1.12;letter-spacing:-.02em}
+  :focus-visible{outline:3px solid var(--rosa);outline-offset:3px;border-radius:6px}
+
+  /* NAV */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:.25s}
+  .nav.sol{background:rgba(20,13,31,.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;color:#fff;font-size:1.05rem}
+  .brand i{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--rosa),var(--lilas));display:grid;place-items:center;font-style:normal;font-size:.8rem;letter-spacing:0}
+  .menu{display:flex;align-items:center;gap:26px;color:#e9def5;font-size:.94rem;font-weight:500}
+  .menu a:hover{color:var(--rosa-2)}
+  .menu .pill{background:var(--rosa);color:#fff;padding:9px 18px;border-radius:99px;font-weight:600}
+  .menu .pill:hover{background:#d6336c;color:#fff}
+  @media(max-width:760px){.menu a:not(.pill){display:none}}
+
+  /* HERO */
+  .hero{position:relative;background:var(--ink);color:#fff;padding:140px 0 96px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(700px 420px at 12% 8%,rgba(240,68,127,.30),transparent 65%),
+    radial-gradient(640px 420px at 92% 30%,rgba(139,92,246,.30),transparent 65%);}
+  .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero{padding:116px 0 72px}}
+  .status{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);padding:7px 15px;border-radius:99px;font-size:.84rem;color:#f1e8fb;margin-bottom:24px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.7);animation:pulso 2s infinite}
+  @keyframes pulso{70%{box-shadow:0 0 0 9px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+  .hero h1{font-size:clamp(2.3rem,5.4vw,3.9rem);font-weight:800;margin-bottom:20px}
+  .grad{background:linear-gradient(95deg,var(--rosa-2),#c4a1ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .lead{font-size:1.14rem;color:#d9cce8;max-width:560px;margin-bottom:32px}
+  .papeis{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+  .papeis span{font-size:.82rem;color:#e9def5;border:1px solid rgba(255,255,255,.18);padding:5px 13px;border-radius:99px}
+  .botoes{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:99px;font-weight:600;font-size:.98rem;border:1.5px solid transparent;transition:.2s;cursor:pointer;font-family:var(--body)}
+  .btn.p{background:var(--rosa);color:#fff;box-shadow:0 10px 30px -10px rgba(240,68,127,.8)}
+  .btn.p:hover{background:#d6336c;transform:translateY(-2px)}
+  .btn.o{border-color:rgba(255,255,255,.28);color:#fff}
+  .btn.o:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+  .btn.o.dk{border-color:var(--linha);color:var(--texto)}
+  .btn.o.dk:hover{background:var(--rosa-soft)}
+
+  /* diagrama de fluxo */
+  .flow{background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:22px;backdrop-filter:blur(6px);box-shadow:0 30px 70px -30px rgba(0,0,0,.7)}
+  .flow .barra{display:flex;gap:7px;margin-bottom:18px;align-items:center}
+  .flow .barra i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.22)}
+  .flow .barra b{margin-left:auto;font:500 .72rem var(--mono);color:#b9a8d1}
+  .no{display:flex;gap:14px;align-items:center;background:rgba(20,13,31,.65);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:13px 15px}
+  .no .ic{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font:600 .78rem var(--mono);background:rgba(139,92,246,.25);color:#d6c2ff}
+  .no strong{display:block;font:600 .93rem var(--head);color:#fff}
+  .no small{color:#b9a8d1;font-size:.8rem}
+  .no.ia{border-color:rgba(240,68,127,.7);background:linear-gradient(135deg,rgba(240,68,127,.22),rgba(139,92,246,.18))}
+  .no.ia .ic{background:var(--rosa);color:#fff}
+  .lig{width:2px;height:22px;margin:0 0 0 34px;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.4) 0 4px,transparent 4px 8px);animation:desce 1s linear infinite}
+  @keyframes desce{to{background-position:0 8px}}
+  .log{margin-top:16px;font:400 .76rem/1.7 var(--mono);color:#a99bc0}
+  .log em{font-style:normal;color:#4ade80}
+
+  /* FAIXA */
+  .faixa{background:var(--ink-2);color:#cdbfe0;border-top:1px solid rgba(255,255,255,.07)}
+  .faixa .wrap{display:flex;flex-wrap:wrap;gap:10px 34px;justify-content:center;padding-top:20px;padding-bottom:20px;font-size:.9rem;font-weight:500}
+  .faixa span::before{content:"◆";color:var(--rosa);margin-right:10px;font-size:.6rem;vertical-align:middle}
+
+  /* SEÇÕES */
+  section{padding:88px 0}
+  .eyebrow{display:block;font:600 .78rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rosa);margin-bottom:10px}
+  .tit{max-width:640px;margin-bottom:46px}
+  .tit h2{font-size:clamp(1.8rem,3.8vw,2.6rem);font-weight:700;margin-bottom:12px}
+  .tit p{color:var(--suave);font-size:1.05rem}
+
+  /* serviços */
+  .servicos{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+  .serv{background:var(--card);border:1px solid var(--linha);border-radius:var(--raio);padding:28px;position:relative;transition:.25s}
+  .serv:hover{transform:translateY(-5px);border-color:var(--rosa-2);box-shadow:0 20px 40px -22px rgba(240,68,127,.5)}
+  .serv .n{font:500 .8rem var(--mono);color:var(--rosa);margin-bottom:16px;display:block}
+  .serv h3{font-size:1.2rem;margin-bottom:10px}
+  .serv p{color:var(--suave);font-size:.96rem;margin-bottom:16px}
+  .serv ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+  .serv li{font-size:.76rem;background:var(--rosa-soft);color:#a3204f;padding:3px 11px;border-radius:99px;font-weight:500}
+
+  /* processo */
+  .proc{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+  .proc::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 90% 0,rgba(139,92,246,.25),transparent 70%)}
+  .proc .wrap{position:relative}
+  .proc .tit p{color:#c9bbdc}
+  .passos{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;counter-reset:p}
+  @media(max-width:960px){.passos{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.passos{grid-template-columns:1fr}}
+  .passo{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);border-radius:var(--raio);padding:22px;counter-increment:p}
+  .passo::before{content:"0" counter(p);font:600 .85rem var(--mono);color:var(--rosa-2);display:block;margin-bottom:14px}
+  .passo h3{font-size:1.05rem;margin-bottom:8px}
+  .passo p{font-size:.88rem;color:#c9bbdc;line-height:1.55}
+
+  /* projetos */
+  .projetos{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px}
+  .proj{background:var(--card);border:1px solid var(--linha);border-radius:var(--raio);padding:0;display:flex;flex-direction:column;overflow:hidden;transition:.25s}
+  .proj:hover{transform:translateY(-5px);box-shadow:0 22px 44px -24px rgba(36,26,51,.45)}
+  .proj .capa{height:112px;padding:18px 22px;display:flex;align-items:flex-end;justify-content:space-between;color:#fff;background:linear-gradient(135deg,var(--c1),var(--c2));position:relative}
+  .proj .capa::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.18) 1px,transparent 1px);background-size:16px 16px;opacity:.5}
+  .proj .capa span{position:relative;z-index:1}
+  .proj .tipo{font:500 .76rem var(--mono);letter-spacing:.06em;text-transform:uppercase}
+  .proj .st{font-size:.74rem;font-weight:600;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);padding:3px 11px;border-radius:99px;backdrop-filter:blur(4px)}
+  .proj .corpo{padding:22px;display:flex;flex-direction:column;flex:1}
+  .proj h3{font-size:1.15rem;margin-bottom:8px}
+  .proj p{color:var(--suave);font-size:.94rem;flex:1;margin-bottom:16px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tags span{font:500 .72rem var(--mono);color:var(--suave);background:#f3edf7;padding:4px 10px;border-radius:8px}
+  .proj .ver{margin-top:16px;font-weight:600;font-size:.9rem;color:var(--rosa)}
+  .sub{margin:56px 0 22px;font-size:1.3rem}
+  .repos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+  .repo{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:20px;transition:.2s;display:block}
+  .repo:hover{border-color:var(--rosa-2);transform:translateY(-3px)}
+  .repo h4{font:600 .98rem var(--head);margin-bottom:6px;word-break:break-word}
+  .repo p{font-size:.88rem;color:var(--suave);margin-bottom:12px}
+  .repo .m{font:400 .74rem var(--mono);color:var(--suave);display:flex;gap:14px}
+  .aviso{grid-column:1/-1;text-align:center;color:var(--suave);padding:26px;border:1px dashed var(--linha);border-radius:16px;background:#fff;font-size:.94rem}
+
+  /* sobre */
+  .sobre{background:#fff;border-block:1px solid var(--linha)}
+  .sobre .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  @media(max-width:860px){.sobre .grid{grid-template-columns:1fr;gap:36px}}
+  .sobre p{color:var(--suave);margin-bottom:16px}
+  .sobre p b{color:var(--texto)}
+  .stack h3{font:600 .8rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--suave);margin:0 0 12px}
+  .stack .tags{margin-bottom:26px}
+  .stack .tags span{font:500 .82rem var(--body);background:var(--rosa-soft);color:#a3204f;padding:6px 14px;border-radius:99px}
+  .stack .tags.est span{background:#efe9fb;color:#5b34b8}
+  .linha-t{border-left:2px solid var(--linha);margin-top:10px;padding-left:22px}
+  .linha-t div{position:relative;margin-bottom:18px}
+  .linha-t div::before{content:"";position:absolute;left:-29px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--rosa);border:3px solid #fff;box-shadow:0 0 0 1px var(--rosa)}
+  .linha-t strong{display:block;font-family:var(--head);font-size:.98rem}
+  .linha-t small{color:var(--suave);font-size:.88rem}
+
+  /* contato */
+  .contato{padding-bottom:72px}
+  .cx{background:var(--ink);color:#fff;border-radius:32px;padding:68px 28px;text-align:center;position:relative;overflow:hidden}
+  .cx::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 260px at 15% 0,rgba(240,68,127,.35),transparent 70%),radial-gradient(520px 260px at 90% 100%,rgba(139,92,246,.35),transparent 70%)}
+  .cx>*{position:relative}
+  .cx h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:700;margin-bottom:12px}
+  .cx p{color:#d3c6e4;max-width:520px;margin:0 auto 30px}
+  .cx .botoes{justify-content:center}
+
+  footer{padding:0 0 36px;text-align:center;color:var(--suave);font-size:.86rem}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+  .rv.on{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+    .dot,.lig{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#topo" class="brand"><i>NT</i> Noemi Tomaz</a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Processo</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato" class="pill">Fale comigo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="status"><span class="dot"></span> Aberta a projetos e parcerias</div>
+        <h1>Automação com IA, sites e apps que <span class="grad">fazem o seu negócio rodar</span>.</h1>
+        <p class="lead">Eu desenho e construo agentes de IA, páginas e soluções digitais para tirar o trabalho repetitivo do caminho e deixar você focar no que gera resultado.</p>
+        <div class="papeis">
+          <span>Professora de Tecnologia</span>
+          <span>Licencianda em Computação</span>
+          <span>Creator · TikTok Shop</span>
+          <span>Afiliada multiplataforma</span>
+        </div>
+        <div class="botoes">
+          <a class="btn p" href="#projetos">Ver projetos →</a>
+          <a class="btn o" href="#contato">Falar comigo</a>
+        </div>
+      </div>
+
+      <div class="flow" aria-hidden="true">
+        <div class="barra"><i></i><i></i><i></i><b>fluxo_afiliados.ai</b></div>
+        <div class="no"><div class="ic">01</div><div><strong>Gatilho</strong><small>Produto em alta detectado</small></div></div>
+        <div class="lig"></div>
+        <div class="no ia"><div class="ic">AI</div><div><strong>Agente de IA</strong><small>Roteiro, legenda e link de afiliado</small></div></div>
+        <div class="lig"></div>
+        <div class="no"><div class="ic">03</div><div><strong>Ação</strong><small>Organiza, notifica e registra</small></div></div>
+        <div class="log">
+          <div><em>✓</em> fluxo executado sem intervenção manual</div>
+          <div><em>✓</em> resultado salvo para análise</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faixa">
+    <div class="wrap">
+      <span>Agentes de IA</span>
+      <span>Web design com IA</span>
+      <span>Marketing digital</span>
+      <span>Automação de processos</span>
+      <span>Educação e tecnologia</span>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="wrap">
+      <div class="tit rv">
+        <span class="eyebrow">O que eu construo</span>
+        <h2>Soluções digitais do briefing à entrega</h2>
+        <p>Combino tecnologia, IA e visão de marketing para criar coisas que funcionam e ficam bonitas.</p>
+      </div>
+      <div class="servicos">
+        <article class="serv rv"><span class="n">01</span><h3>Agentes e automações de IA</h3><p>Fluxos que pensam e agem: pesquisam, geram conteúdo, organizam dados e disparam tarefas sem ninguém apertar botão.</p><ul><li>n8n</li><li>Python</li><li>APIs</li><li>Agentes de IA</li></ul></article>
+        <article class="serv rv"><span class="n">02</span><h3>Sites e landing pages</h3><p>Páginas rápidas, responsivas e com identidade própria, pensadas para apresentar, converter e vender.</p><ul><li>HTML · CSS · JS</li><li>Design com IA</li><li>GitHub Pages</li></ul></article>
+        <article class="serv rv"><span class="n">03</span><h3>Apps e ferramentas sob medida</h3><p>Calculadoras, painéis e pequenos sistemas que resolvem um problema específico do seu dia a dia.</p><ul><li>Web apps</li><li>Painéis</li><li>Protótipos</li></ul></article>
+        <article class="serv rv"><span class="n">04</span><h3>Soluções para processos</h3><p>Mapeio onde o tempo se perde e proponho um fluxo mais enxuto, com ou sem código.</p><ul><li>Diagnóstico</li><li>Fluxos</li><li>Planilhas</li></ul></article>
+        <article class="serv rv"><span class="n">05</span><h3>Identidade e conteúdo</h3><p>Logos, artes para redes, roteiros e vídeos curtos com estética limpa e comercial.</p><ul><li>Identidade visual</li><li>Roteiros</li><li>Vídeos curtos</li></ul></article>
+        <article class="serv rv"><span class="n">06</span><h3>Treinamento e formação</h3><p>Aulas e oficinas de tecnologia, IA e educação digital, com a didática de quem está em sala todo dia.</p><ul><li>Oficinas</li><li>Material didático</li><li>IA na prática</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section class="proc" id="processo">
+    <div class="wrap">
+      <div class="tit rv">
+        <span class="eyebrow">Como eu trabalho</span>
+        <h2>Um processo claro, do início ao fim</h2>
+        <p>Cada projeto segue as mesmas etapas, para você saber o que esperar em cada momento.</p>
+      </div>
+      <div class="passos">
+        <div class="passo rv"><h3>Diagnóstico</h3><p>Entendo seu objetivo, seu público e onde está o gargalo.</p></div>
+        <div class="passo rv"><h3>Desenho</h3><p>Monto o fluxo ou o layout e valido com você antes de construir.</p></div>
+        <div class="passo rv"><h3>Construção</h3><p>Desenvolvo com apoio de IA, mantendo código e processo organizados.</p></div>
+        <div class="passo rv"><h3>Testes</h3><p>Rodo cenários reais, corrijo falhas e ajusto os detalhes.</p></div>
+        <div class="passo rv"><h3>Entrega</h3><p>Publico, documento e explico como usar e dar manutenção.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="wrap">
+      <div class="tit rv">
+        <span class="eyebrow">Portfólio</span>
+        <h2>Projetos e frentes de trabalho</h2>
+        <p>Alguns concluídos, outros em construção. Tudo o que está aqui é parte real do meu aprendizado e da minha prática.</p>
+      </div>
+      <div class="projetos" id="destaques"></div>
+
+      <h3 class="sub rv">Código aberto no GitHub</h3>
+      <div class="repos" id="repos"><div class="aviso">Carregando repositórios…</div></div>
+      <div style="text-align:center;margin-top:28px"><a class="btn o dk" id="linkGhMais" href="#" target="_blank" rel="noopener">Ver todos no GitHub →</a></div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="wrap grid">
+      <div class="rv">
+        <span class="eyebrow">Sobre mim</span>
+        <h2 style="font-size:clamp(1.8rem,3.6vw,2.4rem);margin-bottom:20px">Professora, programadora em formação e empreendedora digital</h2>
+        <p>Sou <b>Noemi</b>, professora da disciplina de Tecnologia e formanda em <b>Licenciatura em Computação</b>. Na sala de aula, ensino como a tecnologia funciona. Fora dela, coloco isso em prática construindo automações, sites e soluções.</p>
+        <p>Hoje estou mergulhada em <b>agentes de IA e automação</b>, aplicando tudo no meu próprio negócio como <b>afiliada multiplataforma</b> e <b>creator no TikTok Shop</b>. Cada experimento vira aprendizado e, muitas vezes, vira projeto para outras pessoas.</p>
+        <p>Acredito em tecnologia útil: simples de usar, bem feita e com um propósito claro.</p>
+      </div>
+      <div class="stack rv">
+        <h3>Ferramentas e tecnologias</h3>
+        <div class="tags"><span>Python</span><span>HTML · CSS · JS</span><span>n8n</span><span>IA generativa</span><span>APIs</span><span>Git · GitHub</span><span>Design com IA</span></div>
+        <h3>Em estudo e evolução</h3>
+        <div class="tags est"><span>Agentes autônomos</span><span>Web design avançado</span><span>Marketing digital</span><span>Mercado tech</span></div>
+        <h3>Trajetória</h3>
+        <div class="linha-t">
+          <div><strong>Licenciatura em Computação</strong><small>Formação em andamento, reta final</small></div>
+          <div><strong>Professora de Tecnologia</strong><small>Ensino fundamental e médio</small></div>
+          <div><strong>Creator e afiliada</strong><small>TikTok Shop e outras plataformas</small></div>
+          <div><strong>Automação e web com IA</strong><small>Estudo e prática diários</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contato" id="contato">
+    <div class="wrap">
+      <div class="cx rv">
+        <h2>Tem um processo para simplificar ou um site para criar?</h2>
+        <p>Me conte a sua ideia. Respondo com uma proposta de por onde começar.</p>
+        <div class="botoes">
+          <a class="btn p" id="lkZap" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+          <a class="btn o" id="lkMail" href="#">Enviar e-mail</a>
+          <a class="btn o" id="lkTik" href="#" target="_blank" rel="noopener">TikTok</a>
+          <a class="btn o" id="lkGh" href="#" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© <span id="ano"></span> Noemi Tomaz · Feito com IA e muito café</div></footer>
+
+<script>
+/* ============ EDITE AQUI ============ */
+const CONFIG = {
+  usuarioGithub: "SEU-USUARIO",
+  email: "seuemail@exemplo.com",
+  whatsapp: "55SEUNUMERO",            // país + DDD + número, ex.: 5512999999999
+  tiktok: "noemitomaz94",
+  maxRepos: 6,
+  ocultarRepos: []                    // nomes de repositórios para não exibir
+};
+
+/* Projetos em destaque. Troque textos, status e links à vontade.
+   status: ex. "No ar", "Em andamento", "Protótipo" | link: deixe "" se não houver */
+const PROJETOS = [
+  { tipo:"Automação", status:"Em desenvolvimento", cores:["#f0447f","#8b5cf6"],
+    titulo:"Automação de divulgação no WhatsApp",
+    desc:"Projeto em Python para organizar e agilizar a divulgação de ofertas, pensado para rodar com baixo custo.",
+    tags:["Python","WhatsApp","Automação"], link:"" },
+  { tipo:"Agente de IA", status:"Protótipo", cores:["#8b5cf6","#312e81"],
+    titulo:"Agente de IA para operação de afiliados",
+    desc:"Fluxo com n8n e IA que apoia a pesquisa de produtos, a criação de roteiros e legendas e a organização das postagens.",
+    tags:["n8n","Agentes de IA","Afiliados"], link:"" },
+  { tipo:"Marketing", status:"Ativo", cores:["#ff7aa8","#f0447f"],
+    titulo:"Vitrine multiplataforma de afiliada",
+    desc:"Estratégia de conteúdo e links para TikTok Shop e Shopee Vídeo, com foco em GMV e testes de produtos.",
+    tags:["TikTok Shop","Shopee","Conteúdo"], link:"" },
+  { tipo:"Web", status:"No ar", cores:["#140d1f","#f0447f"],
+    titulo:"Este portfólio",
+    desc:"Página criada com apoio de IA, do briefing ao deploy no GitHub Pages, com projetos atualizados direto do GitHub.",
+    tags:["HTML","CSS","JavaScript","GitHub Pages"], link:"" },
+  { tipo:"Pesquisa", status:"Em andamento", cores:["#6d28d9","#be185d"],
+    titulo:"TCC: Aprender na era digital",
+    desc:"Revisão de literatura sobre aprendizagem e tecnologia, com normas ABNT e fontes verificáveis.",
+    tags:["Educação","Pesquisa","ABNT"], link:"" },
+  { tipo:"Conteúdo", status:"Em produção", cores:["#f0447f","#fb923c"],
+    titulo:"Vídeos curtos sobre livros",
+    desc:"Série de vídeos de até 30 segundos com trecho curto e reflexão, narrados e sem aparecer na câmera.",
+    tags:["Vídeo","Roteiro","Narração"], link:"" }
+];
+/* ==================================== */
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const gh = CONFIG.usuarioGithub;
+
+$("ano").textContent = new Date().getFullYear();
+$("lkZap").href  = "https://wa.me/" + CONFIG.whatsapp;
+$("lkMail").href = "mailto:" + CONFIG.email;
+$("lkTik").href  = "https://www.tiktok.com/@" + CONFIG.tiktok;
+$("lkGh").href   = "https://github.com/" + gh;
+$("linkGhMais").href = "https://github.com/" + gh + "?tab=repositories";
+
+/* destaques */
+$("destaques").innerHTML = PROJETOS.map(p => {
+  const inner = `
+    <div class="capa" style="--c1:${p.cores[0]};--c2:${p.cores[1]}">
+      <span class="tipo">${esc(p.tipo)}</span><span class="st">${esc(p.status)}</span>
+    </div>
+    <div class="corpo">
+      <h3>${esc(p.titulo)}</h3>
+      <p>${esc(p.desc)}</p>
+      <div class="tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+      ${p.link ? '<span class="ver">Ver projeto →</span>' : ""}
+    </div>`;
+  return p.link
+    ? `<a class="proj rv" href="${esc(p.link)}" target="_blank" rel="noopener">${inner}</a>`
+    : `<article class="proj rv">${inner}</article>`;
+}).join("");
+
+/* repositórios do GitHub */
+(async function(){
+  const box = $("repos");
+  if(gh === "SEU-USUARIO"){
+    box.innerHTML = '<div class="aviso">Defina <b>usuarioGithub</b> no bloco CONFIG do index.html para listar seus repositórios aqui.</div>';
+    return;
+  }
+  try{
+    const r = await fetch(`https://api.github.com/users/${encodeURIComponent(gh)}/repos?sort=updated&per_page=100`);
+    if(!r.ok) throw 0;
+    let list = (await r.json())
+      .filter(x => !x.fork && !x.archived && !CONFIG.ocultarRepos.includes(x.name) && x.name.toLowerCase() !== gh.toLowerCase()+".github.io")
+      .sort((a,b)=> (b.stargazers_count-a.stargazers_count) || (new Date(b.pushed_at)-new Date(a.pushed_at)))
+      .slice(0, CONFIG.maxRepos);
+    if(!list.length){ box.innerHTML = '<div class="aviso">Nenhum repositório público por enquanto.</div>'; return; }
+    box.innerHTML = list.map(x=>`
+      <a class="repo" href="${esc(x.homepage || x.html_url)}" target="_blank" rel="noopener">
+        <h4>${esc(x.name)}</h4>
+        <p>${esc(x.description || "Sem descrição ainda.")}</p>
+        <div class="m">${x.language?`<span>● ${esc(x.language)}</span>`:""}<span>★ ${x.stargazers_count}</span></div>
+      </a>`).join("");
+  }catch(e){
+    box.innerHTML = `<div class="aviso">Não consegui carregar agora. <a href="https://github.com/${esc(gh)}" target="_blank" rel="noopener" style="color:var(--rosa);font-weight:600">Abrir meu GitHub</a></div>`;
+  }
+})();
+
+/* nav ao rolar */
+const nav = $("nav");
+const onScroll = () => nav.classList.toggle("sol", scrollY > 24);
+onScroll(); addEventListener("scroll", onScroll, {passive:true});
+
+/* animação de entrada */
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); } }), {threshold:.12}) : null;
+document.querySelectorAll(".rv").forEach(el => io ? io.observe(el) : el.classList.add("on"));
+</script>
+</body>
+</html>
